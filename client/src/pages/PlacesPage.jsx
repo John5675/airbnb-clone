@@ -6,7 +6,7 @@ import axios from "axios";
 export default function PlacesPage() {
   const [places, setPlaces] = useState([]);
   useEffect(() => {
-    axios.get("/places").then(({ data }) => {
+    axios.get("/user-places").then(({ data }) => {
       setPlaces(data);
     });
   }, []);
@@ -38,7 +38,7 @@ export default function PlacesPage() {
           places.map((place) => (
             <Link
               to={`/account/places/${place._id}`}
-              key={place.id}
+              key={place._id}
               className="flex cursor-pointer gap-4 bg-gray-100 p-4 rounded-2xl"
             >
               <div className="flex w-32 h-32 bg-gray-300 grow shrink-0">
